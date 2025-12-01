@@ -8,6 +8,17 @@
 </head>
 <body>
 
+    <section class="search-panel">
+        <h1>Find a random Unsplash photo</h1>
+        <form method="POST" action="{{ url_for('main.index') }}">
+            <input type="text" name="query" placeholder="Try mountains, coffee, sunsets..." value="{{ search_term or '' }}">
+            <button type="submit">Search</button>
+        </form>
+        {% if error %}
+        <p style="color: red; margin-top: 10px;">{{ error }}</p>
+        {% endif %}
+    </section>
+
     <div style="background-image: url('{{ image_url }}'); height: 100vh; background-size: cover; background-position: center;">
     </div>
 
